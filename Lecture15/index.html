@@ -1,0 +1,22 @@
+<html lang="en" ng-app="MsgApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Digest Cycle - 2</title>
+</head>
+<body>
+    <h1>The Digest Cycle ($digest and $apply)</h1>
+    <div ng-controller="CounterController">
+        <div>
+            <button ng-click="showNumberOfWatchers()">Log # of Watchers</button>
+        </div>
+        <div>
+            <p>counter value: {{ counter }} </p>
+            <button ng-click="incrementCounter()">Increment Counter</button>
+        </div>
+    </div>
+</body>
+</html>
+

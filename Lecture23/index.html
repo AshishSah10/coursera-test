@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AsyncShoppingApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Shopping List App</title>
+</head>
+<body>
+    <h1>Custom Service Through Provider</h1>
+    <!-- List #2 - Limited items(configurable) in shopping list -->
+    <div id="list" ng-controller="ShoppingListController as list">
+        <h2>Shooping List #1</h2>
+        <div>
+            <input type="text" ng-model="list.itemName" placeholder="item name" />
+            <input type="number" ng-model="list.itemQuantity" placeholder="item quantity" />
+            <button ng-click="list.addItem();">Add item to Shopping List</button>
+        </div>
+        <div>
+            <ol>
+                <li ng-repeat="item in list.items">
+                    {{item.quantity}} of {{item.itemName}}
+                    <button ng-click="list.removeItem($index)">Remove this Item</button>
+                </li>
+            </ol>
+        </div>
+        <div ng-if="list.errorMessage">ng-if Error: {{list.errorMessage}}</div>
+        <div ng-show="list.errorMessage">ng-show Error: {{list.errorMessage}}</div>
+        <div ng-hide="!list.errorMessage">ng-hide Error: {{list.errorMessage}}</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="FactoryShoppingApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Shopping List App</title>
+</head>
+<body>
+    <h1>Custom Service Through Factory</h1>
+    <!-- List #1 - Unlimited items in shopping list -->
+    <div id="list1" ng-controller="ShoppingListController1 as list1">
+        <h2>Shooping List #1</h2>
+        <div ng-controller="ShoppingListAddController as itemAdder">
+            <input type="text" ng-model="itemAdder.itemName" placeholder="item name" />
+            <input type="text" ng-model="itemAdder.itemQuantity" placeholder="item quantity" />
+            <button ng-click="itemAdder.addItem();">Add item to Shopping List</button>
+        </div>
+        <div ng-controller="ShoppingListShowController as itemViewer">
+            <ol>
+                <li ng-repeat="item in itemViewer.items">
+                    {{item.quantity}} of {{item.itemName}}
+                    <button ng-click="itemViewer.removeItem($index)">Remove this Item</button>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+
+    <h1>Custom Service Through Factory</h1>
+    <!-- List #2 - Limited items(3) in shopping list -->
+    <div id="list2" ng-controller="ShoppingListController2 as list2">
+        <h2>Shooping List #2</h2>
+        <div ng-controller="ShoppingListAddController as itemAdder">
+            <input type="text" ng-model="itemAdder.itemName" placeholder="item name" />
+            <input type="text" ng-model="itemAdder.itemQuantity" placeholder="item quantity" />
+            <button ng-click="itemAdder.addItem();">Add item to Shopping List</button>
+        </div>
+        <div ng-controller="ShoppingListShowController as itemViewer">
+            <ol>
+                <li ng-repeat="item in itemViewer.items">
+                    {{item.quantity}} of {{item.itemName}}
+                    <button ng-click="itemViewer.removeItem($index)">Remove this Item</button>
+                </li>
+            </ol>
+        </div>
+        <div>Error: {{list2.errorMessage}}</div>
+    </div>
+</body>
+</html>

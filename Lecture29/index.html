@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ShoppingListDirectiveApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Shopping List App Directive with their own Controller</title>
+</head>
+<body>
+    <div id="list1" ng-controller="ShoppingListController1 as list">
+        <div>
+            <input type="text" ng-model="list.itemName" placeholder="item name" />
+            <input type="number" ng-model="list.itemQuantity" placeholder="item quantity" />
+            <button ng-click="list.addItem();">Add item to Shopping List</button>
+        </div>
+        <div>
+           <shopping-list items="list.items" title="{{list.title}}"></shopping-list>
+        </div>
+    </div>
+
+
+    <div id="list2" ng-controller="ShoppingListController2 as list">
+        <div>
+            <input type="text" ng-model="list.itemName" placeholder="item name" />
+            <input type="number" ng-model="list.itemQuantity" placeholder="item quantity" />
+            <button ng-click="list.addItem();">Add item to Shopping List</button>
+        </div>
+        <div>
+            <shopping-list items="list.items" title="Shooping List #2( limited to 3 items )"></shopping-list>
+        </div>
+        <div ng-if="list.errorMessage">ng-if Error: {{list.errorMessage}}</div>
+    </div>
+</body>
+</html>
